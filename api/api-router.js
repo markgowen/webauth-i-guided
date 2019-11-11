@@ -12,10 +12,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/hash', (req, res) => {
-  const credentials = req.body;
-  const hash = bcrypt.hashSync(credentials.password, 12)
+  const password = req.body.password;
+  const hash = bcrypt.hashSync(password, 12);
 
-  
-})
+  res.status(200).json({ password, hash });
+});
 
 module.exports = router;
